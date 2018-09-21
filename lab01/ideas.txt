@@ -1,0 +1,38 @@
+Exercise 1.1
+Andrew Fulling and Kelsey Brouwer
+Lab 01, CS 262
+
+Interesting and Tractable: a Calvin student activity coordination app
+This app would help students connect and plan activities. Our motivating idea was a student
+	who wants to order a pizza but doesn't want the whole thing. She could post to the app
+	looking for someone who also wanted a pizza and the two of them could easily connect.
+	Other uses could be coordinating rides to the grocery store, carpooling for Calvin events,
+	or connecting people interested in the same games or activities. Posts would 
+	have a limited life span, so that the feed does not get clogged up. Posts could also 
+	be sorted by category to help students connect in the best possible way.
+Difficulties with the app would be security related, such as limiting the app to members of 
+	the Calvin community or making sure that posts were appropriate. Likely some sort of 
+	administration would be needed. Another concern is that this app is not entirely 
+	necessary, since other communication apps exist and are used.
+Design question: are users limited to seeing their own residence, 
+	or can they see other buildings' posts?
+	
+Wacky: the Calvin Parking app
+This app would help members of the Calvin community know where to park on campus. Our idea
+	came from commuting students who sometimes are doomed to spend precious time searching 
+	for a parking spot only to end up late to class. This app could either list available 
+	parking spots or present a map that the user could explore to find a spot. One feature
+	might be for the user to enter information about their parking credentials (resident, 
+	commuter, staff, visitor) to be shown what spots are best for them. Another feature
+	could save the chosen parking spot for the user to easily find their car later. An 
+	advanced feature could be for the app to select the best available parking spot for
+	the user, based on features like where their classes are and if they are late or need to
+	leave quickly, etc.
+	The map GUI could work in one of two ways: select an area and then highlight surrounding
+	parking spaces or highlight parking spaces under a central cursor as the user scrolls
+	around the map.
+Concerns for this app are how to collect parking data. The way that makes sense to procure
+	this data would be via GPS, but that could be outside the scope of this project. 
+	Otherwise, data could be user inputted, but then all people parking on Calvin's campus
+	would need to input their parking data for the app to work. Otherwise the app would 
+	need to be frequently updated by an administrator, which seems like too much work.

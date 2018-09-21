@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">HW1Calculator</string>
+    <string name="InputPrompt1">Value 1:</string>
+    <string name="InputPrompt2">Value 2:</string>
+    <string name="InputPrompt3">Operator:</string>
+    <string name="calculate_button">Calculate</string>
+    <string name="InputHint1">Enter a number.</string>
+    <string name="InputHint2">Enter a number.</string>
+    <string name="Input1Error">Failed to convert Value 1 into a number.</string>
+    <string name="Input2Error">Failed to convert Value 2 into a number.</string>
+    <string name="next_input_prompt">Next (Input2)</string>
+    <string name="keyboard_error">ERROR: Keyboard not found.</string>
+    <string name="zero_division_error">Cannot divide by zero!</string>
+    <string name="modulo_division_error">Cannot perform N mod 0</string>
+    <string name="missing_values_error">Not all values have been filled in.</string>
+
+</resources>

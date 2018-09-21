@@ -1,0 +1,73 @@
+Andrew Fulling
+CS 262
+09/07/2018
+
+Exercise 1.2
+
+
+Demographics
+
+Class level: senior
+Majors: BA in computer science, strategic communication
+Letter grade in CS 112: A
+Letter grade in CS 212: A
+
+
+Technical
+
+A.
+I have worked on java applications in CS214 and some over this last summer.
+I worked on an Android application during this last summer, using java, SQLite, XML, and JSON files.
+I have not worked on GPS-based systems.
+I have worked a little with databases in Android, but otherwise no I have not worked on database-driven websites or services.
+
+B.
+I have not used Slack or Trello, but I did use GitHub over the summer as I developed an event app for LightSys.
+I worked with a repository, version pushes and reverting to old versions. I also learned a little bit about branches and branch merges.
+One other intern and I worked at the same time, so I have some experience with simultaneous coding through GitHub.
+
+C.
+I have an Android device.
+Moto G5 Plus running Android 7.0
+I cannot run emulators on my computer. I get blue screens of death. So, if I use android studio on my computer, I will be using my phone to test.
+
+D.
+I have experience with design patterns and recycler-views, so android apps working with lists of data would be a strong point for me.
+I'd also like experience with more... open GUIs, though.
+Kelsey Brouwer and I thought of a calvin student coordination app. That sounds fun and useful to me.
+I enjoy playing and designing games. I especially enjoy rhythm games.
+Motivation apps like Habitica are neat to me.
+
+
+Personality
+
+A.
+	Openness - 42%
+	Conscientiousness - 85%
+	Extraversion - 27%
+	Agreeableness - 44%
+	Neuroticism - 83%
+Myers-Briggs: ISTJ (Decently dominant into this)
+Enneagram: Type 1 (pretty dominant type 1, too. Definitely look at this one)
+	Basic Fear: of being corrupt/evil, defective
+	Basic Desire: to be good, to have integrity, to be balanced.
+	Key motivations: want to be right, strive higher and improve everything.
+		Be consistent with ideals, try to be beyond criticism so as not to be condemned by anyone.
+	
+B. I feel comfortable working with Andrew Thomas and Kelsey Brouwer.
+
+
+Anything else you'd like to know before project assignment
+
+I can be available most mornings and mid-late afternoon, evenings can work too. My schedule can work with a lot of people, thus, including commuter student prefs.
+(Kelsey Brouwer brought this detail to my attention, since she commutes to campus)
+
+I'm natrually a worrier and do a lot with logistics and delegation. I have to watch that I don't become too controlling and narrow minded.
+I naturally overwork myself. Campus tech crew can get demanding and I am taking on some grading positions.
+Unfortunately, I procrastinate. I am hoping to use this class's contents to help curb that, espcecially regarding a team project.
+I am comfortable with presenting and communicating (yay Strategic Communication major).
+I have been told that I am a little slow to take criticism. I do take criticism, but there is a bit of an awkward pause between when I hear the criticism and really apply the criticism.
+My handling of criticism is similar to my handling of new ideas.
+
+When working on the android app for my summer internship, I was most "in my element" when introducing the other intern to my app--both teaching how to do things and walking through algorithm ideas
+verbally. A teaching/leadership role fits me. We got more done working together than when I worked alone (not that I wasted time when working alone).

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    >
+
+    <!--INPUT 1 PROMPT AND TEXT BOX-->
+    <TextView
+        android:id="@+id/InputPrompt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/value_1_text_box"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/InputPrompt1"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="10dp"
+        android:paddingRight="30dp"
+        android:paddingEnd="30dp"
+        />
+
+    <EditText
+        android:id="@+id/value_1_text_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/InputPrompt1"
+        android:layout_toEndOf="@id/InputPrompt1"
+        android:hint="@string/InputHint1"
+        android:inputType="numberSigned"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:imeOptions="actionNext"
+        android:imeActionLabel="@string/next_input_prompt"
+        />
+
+    <!--INPUT 2 PROMPT AND TEXT BOX-->
+    <TextView
+        android:id="@+id/InputPrompt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/value_2_text_box"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/InputPrompt2"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:paddingBottom="10dp"
+        android:paddingRight="30dp"
+        android:paddingEnd="30dp"
+        />
+
+    <EditText
+        android:id="@+id/value_2_text_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value_1_text_box"
+        android:layout_toRightOf="@id/InputPrompt2"
+        android:layout_toEndOf="@id/InputPrompt2"
+        android:hint="@string/InputHint2"
+        android:inputType="numberSigned"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:imeOptions="actionDone"
+        />
+
+    <!--OPERATOR PROMPT AND SPINNER-->
+    <TextView
+        android:id="@+id/InputPrompt3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/value_2_text_box"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingBottom="20dp"
+        android:text="@string/InputPrompt3"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        />
+
+    <!--see item xml in spinner_item.xml-->
+    <Spinner
+        android:id="@+id/operator_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InputPrompt2"
+        android:layout_toRightOf="@id/InputPrompt3"
+        android:layout_toEndOf="@id/InputPrompt3"
+        android:paddingRight="200dp"
+        android:paddingEnd="200dp"
+        >
+    </Spinner>
+
+    <!--CALCULATE BUTTON AND RESULT MESSAGE-->
+    <Button
+        android:id="@+id/CalculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/InputPrompt3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:text="@string/calculate_button"
+        android:textSize="26sp"
+        android:textColor="@android:color/black"
+        android:background="@android:color/darker_gray"
+        android:onClick="calculateButtonPressed"
+        />
+
+    <TextView
+        android:id="@+id/results_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/CalculateButton"
+        android:layout_toRightOf="@id/CalculateButton"
+        android:layout_toEndOf="@id/CalculateButton"
+        android:paddingStart="20dp"
+        android:paddingLeft="20dp"
+        android:textColor="@android:color/black"
+        android:textSize="26sp"
+        />
+
+</RelativeLayout>
