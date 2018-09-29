@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">lab04Tabs</string>
+    <string name="fragment_1_text">Hello Tab 1 User!</string>
+    <string name="fragment_2_text">Hello Tab 2 User!</string>
+    <string name="fragment_3_text">Hello Tab 3 User!</string>
+    <string name="tab_label1">Top Stories</string>
+    <string name="tab_label2">Tech News</string>
+    <string name="tab_label3">Cooking</string>
 </resources>
