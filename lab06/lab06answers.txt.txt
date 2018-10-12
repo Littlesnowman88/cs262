@@ -1,0 +1,22 @@
+Exercise 6.1 answers:
+Task1:
+A) What Android template automatically adds a settings menu item?
+	--basic activity template
+B)What is the difference between task 1 and task 2?
+	--task 1 builds a basic settings activity from scratch, with a single toggle-setting.
+	--task 2 uses Android Studio's settings activity template to create a multi-screen
+		settings UI. Settings are divided into groups in task 2.
+
+Task2:
+A) What are you testing/demonstrating when you re-run the application on a device with a larger screen?
+	--Essentially, I would be testing that Android shows fragments side-by-side, instead
+		showing things on different screens.
+B) The settings activity template must build fragments for you. Where are they defined?
+	--The settings's fragments are programatically defined and added from within
+		SettingsActivity.java. SettingsActivity.Java has "public static class"es
+		for its Fragments.
+
+//NOTE TO GRADER: The up arrow does not return Settings Activity to Main Activity. I checked
+	the solution code and my relevant up-button function (onOptionsItemSelected) matches
+	the solutin code. I may try to spend time fixing it, but the Android back arrow 
+	(the one at the bottom of the screen) will return the user to the Main Activity.
