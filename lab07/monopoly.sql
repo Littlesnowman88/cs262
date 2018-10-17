@@ -34,15 +34,17 @@ CREATE TABLE Property (
 );
 
 CREATE TABLE PlayerGame (
-	gameID integer REFERENCES Game(ID),
-	playerID integer REFERENCES Player(ID),
+	PRIMARY KEY (gameID, playerID),
+	gameID integer REFERENCES Game(ID) NOT NULL,
+	playerID integer REFERENCES Player(ID) NOT NULL,
 	score integer
 	);
 
 CREATE TABLE PlayerProperty(
-	gameID integer REFERENCES Game(ID),
-	playerID integer REFERENCES Player(ID),
-	propertyID integer REFERENCES Property(ID),
+	PRIMARY KEY (gameID, playerID, propertyID),
+	gameID integer REFERENCES Game(ID) NOT NULL,
+	playerID integer REFERENCES Player(ID) NOT NULL,
+	propertyID integer REFERENCES Property(ID) NOT NULL,
 	houses integer,
 	hotels integer
 );
@@ -105,12 +107,16 @@ INSERT INTO PlayerGame VALUES (3, 3, 6000.00);
 
 --Player Property relationships
 --GAME 1
-INSERT INTO PlayerProperty VALUES (1, 2, 02, 3);
-INSERT INTO PlayerProperty VALUES (1, 3, 14, 0, 2);
-INSERT INTO PlayerProperty VALUES (1, 3, 20, 2, 0);
-INSERT INTO PlayerProperty VALUES (1, 1, 06, 0, 1);
-INSERT INTO PlayerProperty VALUES (2, 1, 05, 2, 0);
-INSERT INTO PlayerProperty VALUES (2, 3, 11, 0, 3);
-INSERT INTO PlayerProperty VALUES (3, 2, 01, 0, 0);
-INSERT INTO PlayerProperty VALUES (3, 3, 19, 1, 1);
-INSERT INTO PlayerProperty VALUES (3, 3, 20, 0, 2);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, houses) VALUES (1, 2, 02, 3);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, hotels) VALUES (1, 3, 14, 2);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, houses) VALUES (1, 3, 20, 2);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, hotels) VALUES (1, 1, 06, 1);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, houses) VALUES (2, 1, 05, 2);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, hotels) VALUES (2, 3, 11, 3);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID) VALUES (3, 2, 01);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, houses, hotels) VALUES (3, 3, 19, 1, 1);
+INSERT INTO PlayerProperty(gameID, playerID, propertyID, hotels) VALUES (3, 3, 20, 2);
+
+--use some accessors to test the Insertions
+SELECT COUNT(*) FROM Property; --should return 26
+SELECT * FROM PlayerProperty; -- select all from player property
