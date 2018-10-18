@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Homework 2 - Monopoly Players</string>
+    <string name="fetch_hint">Filter player by number here.</string>
+    <string name="fetch_button">FETCH</string>
+    <string name="settings_label">Settings</string>
+    <string name="error" translatable="true">ERROR</string>
+    <string name="connection_failed">ERROR: connection to URL failed. Please check your wifi status.</string>
+    <string name="notification_pref_title">Sounds</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

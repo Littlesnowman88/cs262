@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pref_screen"
+    >
+
+    <SwitchPreference
+        android:id="@+id/color_preference"
+        android:defaultValue="false"
+        android:key="color_preference"
+        android:title="Dark Mode"
+        />
+
+</PreferenceScreen>
