@@ -22,9 +22,7 @@ CREATE TABLE Game (
 CREATE TABLE Player (
 	ID integer PRIMARY KEY,
 	emailAddress varchar(50) NOT NULL,
-	name varchar(50),
-	cash money,
-	board_location integer NOT NULL--should be one of 0 thru 39
+	name varchar(50)
 	);
 
 CREATE TABLE Property (
@@ -37,6 +35,8 @@ CREATE TABLE PlayerGame (
 	PRIMARY KEY (gameID, playerID),
 	gameID integer REFERENCES Game(ID) NOT NULL,
 	playerID integer REFERENCES Player(ID) NOT NULL,
+  board_location integer NOT NULL,--should be one of 0 thru 39
+	cash money,
 	score integer
 	);
 
@@ -60,9 +60,9 @@ INSERT INTO Game VALUES (1, '2006-06-27 08:00:00');
 INSERT INTO Game VALUES (2, '2006-06-28 13:20:00');
 INSERT INTO Game VALUES (3, '2006-06-29 18:41:00');
 
-INSERT INTO Player(ID, emailAddress, cash, board_location) VALUES (1, 'me@calvin.edu', 750, 0);
-INSERT INTO Player VALUES (2, 'king@gmail.edu', 'The King', 500, 0);
-INSERT INTO Player VALUES (3, 'dog@gmail.edu', 'Dogbreath', 500, 0);
+INSERT INTO Player(ID, emailAddress) VALUES (1, 'me@calvin.edu');
+INSERT INTO Player VALUES (2, 'king@gmail.edu', 'The King');
+INSERT INTO Player VALUES (3, 'dog@gmail.edu', 'Dogbreath');
 
 -- Build all the properties
 INSERT INTO Property VALUES (01 , 'Mediterranean Avenue', 'Dark Purple');
@@ -94,16 +94,16 @@ INSERT INTO Property VALUES (26 , 'Water Works', 'Utility');
 
 --Initial game builds
 --GAME1
-INSERT INTO PlayerGame VALUES (1, 1, 750.00);
-INSERT INTO PlayerGame VALUES (1, 2, 500.00);
-INSERT INTO PlayerGame VALUES (1, 3, 2850.00);
+INSERT INTO PlayerGame VALUES (1, 1, 0, 500, 750.00);
+INSERT INTO PlayerGame VALUES (1, 2, 0, 500, 500.00);
+INSERT INTO PlayerGame VALUES (1, 3, 0, 500, 2850.00);
 --GAME2
-INSERT INTO PlayerGame VALUES (2, 1, 1750.00);
-INSERT INTO PlayerGame VALUES (2, 2, 500.00);
-INSERT INTO PlayerGame VALUES (2, 3, 1000.00);
+INSERT INTO PlayerGame VALUES (2, 1, 0, 750, 1750.00);
+INSERT INTO PlayerGame VALUES (2, 2, 0, 500, 500.00);
+INSERT INTO PlayerGame VALUES (2, 3, 0, 500, 1000.00);
 --GAME3
-INSERT INTO PlayerGame VALUES (3, 2, 500.00);
-INSERT INTO PlayerGame VALUES (3, 3, 6000.00);
+INSERT INTO PlayerGame VALUES (3, 2, 0, 500, 500.00);
+INSERT INTO PlayerGame VALUES (3, 3, 0, 500, 6000.00);
 
 --Player Property relationships
 --GAME 1
