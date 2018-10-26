@@ -1,0 +1,52 @@
+--Lab07 Testers
+--use some accessors to test the Insertions
+--SELECT COUNT(*) FROM Property; --should return 26
+--SELECT * FROM PlayerProperty; -- select all from player property
+
+
+--Lab08 SQL Queries
+--PART 1 QUERIES
+--Retrieve a list of all the games, ordered by date with the most recent game coming first.
+--SELECT * FROM Game ORDER BY time DESC;
+--Retrieve all the games that occured in the past week
+--SELECT * FROM GAME WHERE time > Now() - INTERVAL '7 days';
+--Retrieve a list of players who have (non-NULL) names
+--SELECT * FROM Player WHERE name IS NOT NULL;
+--Retrieve a list of IDs for players who have some game score larger than 2000.
+--SELECT Player.ID FROM Player, PlayerGame 
+--WHERE Player.ID = PlayerGame.playerID
+--AND PlayerGame.score > 2000.00;
+--Retrieve a list of players who have GMail accounts
+--SELECT * FROM Player WHERE 
+--emailAddress LIKE '%GMail%'
+--OR emailAddress LIKE '%gmail%';
+
+--PART 2 QUERIES
+--Retrieve all "The King's" game scores in decreasing order
+--SELECT PlayerGame.score FROM PlayerGame, Player
+--  WHERE PlayerGame.playerID = Player.ID
+--    AND Player.name = 'The King'
+--  ORDER BY PlayerGame.score DESC;
+--Retrieve the name of the winner of the game played on 2006-06-28 13:20:00
+--SELECT Player.name FROM Player, Game, PlayerGame
+--  WHERE Player.ID = PlayerGame.playerID
+--    AND Game.ID = PlayerGame.gameID
+--    AND Game.time = '2006-06-28 13:20:00'
+--    ORDER BY PlayerGame.score DESC
+--    LIMIT 1;
+--ANSWER TO Exercise 8.2 Letter C: "So what does that P1.ID < P2.ID clause do in the last example query?"
+--SELECT P1.name
+--FROM Player AS P1, Player AS P2
+--WHERE P1.name = P2.name
+--  AND P1.ID < P2.ID;
+--P1.ID < P2.ID prevents the select statement from returning names that are equal to themselves;
+
+--"The query that joined the Player table to itself seems rather contrived.
+--	Can you think of a realistic situation in which you'd want to join a table to itself?
+--ANSWER: according to www1.udel.edu/evelyn/SQL-Class3/SQL3_self.html,
+--	self joines are useful for "obtaining running counts and running totals in an SQL query."
+--Self joins are useful if foreign keys point to entries in their own tables.
+-- for example, if an employee has an ID, last name, first name, and someone he/she reports_to,
+-- the reports_to column has foreign keys pointing to other employee IDs. The self join could
+-- make sure that an employee never reports to himself/herself, or maybe to make sure that
+-- every employee reports to another employee.
