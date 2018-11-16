@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--root layout for mainActivity's UI elements-->
 <LinearLayout
     android:id="@+id/root_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,6 +10,7 @@
     android:orientation="vertical"
     >
 
+    <!--user input for player filtering-->
     <EditText
         android:id="@+id/fetch_text"
         android:layout_width="match_parent"
@@ -18,6 +20,7 @@
         android:digits="0123456789"
         />
 
+    <!--button that fetches player data-->
     <Button
         android:id="@+id/fetch_button"
         android:layout_width="wrap_content"
@@ -26,6 +29,7 @@
         android:onClick="fetchPlayer"
         />
 
+    <!--root container for displayed player data-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/player_text_container"
         android:layout_width="wrap_content"

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--text view that holds player data-->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/player_text"
     android:layout_width="match_parent"

@@ -13,12 +13,28 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * NetworkUtils fetches monopoly player data from the world wide web
+ *
+ * @author Littlesnowman88
+ */
 public class NetworkUtils {
 
+    //creating a log tag for debugging purposes
     private static final String LOG_TAG = NetworkUtils.class.getSimpleName();
+    //build the base url for the monopoly database
     private static final String PLAYER_BASE_URL = "https://calvincs262-monopoly.appspot.com/monopoly/v1/";
 
+    /**
+     * getPlayerInfo builds a complete URL, connects to that URL, and fetches player data based on player filter
+     *
+     * @param queryString, the user-provided player filter
+     * @return a JSON String to be parsed by MainActivity; the JSONString, if successful connection, contains player data
+     * OR, a localized error message if connection failed.
+     * @author Littlesnowman88
+     */
     static String getPlayerInfo(String queryString) {
+        //build necessary web-related components outside try-catch scope
         HttpURLConnection urlConnection = null;
         BufferedReader reader = null;
         String playerJSONString = null;
@@ -57,6 +73,7 @@ public class NetworkUtils {
 
         } catch (Exception e) {
             e.printStackTrace();
+            //return the error message
             return e.getLocalizedMessage();
 
         } finally {
@@ -74,7 +91,7 @@ public class NetworkUtils {
                 }
             }
         }
-        Log.d(LOG_TAG, (playerJSONString!=null)?playerJSONString:"JSON STRING IS NULL, BADNESS");
+        Log.d(LOG_TAG, (playerJSONString != null) ? playerJSONString : "JSON STRING IS NULL, BADNESS");
         return playerJSONString;
     }
 }

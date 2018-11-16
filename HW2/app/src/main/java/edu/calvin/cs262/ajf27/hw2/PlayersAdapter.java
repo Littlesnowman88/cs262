@@ -13,31 +13,50 @@ import android.widget.TextView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+/**
+ * PlayersAdapter loads the player RecyclerView with Player data
+ *
+ * @author Littlesnowman88
+ */
 public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayersAdapterViewHolder> {
 
+    //list of players and a flag for the dummy dark mode setting
     private ArrayList<String> players;
     private Boolean dark_mode;
 
     /**
-     * Constructor
+     * Constructor to initialize instance variables and access shared preferences
+     *
+     * @param app_context the application context used for getting strings from strings.xml and getting default shared preferences
+     * @author Littlesnowman88
      **/
     public PlayersAdapter(Context app_context) {
 
         players = new ArrayList<String>();
+        //accessed through WeakReference to avoid memory leaks
         Context context = new WeakReference<Context>(app_context).get();
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         dark_mode = sharedPrefs.getBoolean("color_preference", false);
     }
 
+    /**
+     * Inner view holder that holds instances of player_item.xml
+     * Although the view holder technically implements View.OnClickListener, nothing happens when the user clicks on a player text view
+     *
+     * @author Littlesnowman88
+     */
     public class PlayersAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView player_view;
+
         /**
-         * constructor
+         * constructor to access UI items from player_item.xml and to apply a homebrew darkmode preference
          * gives this viewholder access to a player's internal xml elements
          **/
         public PlayersAdapterViewHolder(View view) {
             super(view);
+            //save access to the player text view
             player_view = (TextView) view.findViewById(R.id.player_text);
+            //apply dark mode or non-dark mode
             if (!dark_mode) {
                 player_view.setBackgroundColor(MainActivity.WHITE);
                 player_view.setTextColor(MainActivity.BLACK);
@@ -47,6 +66,12 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayersA
             }
         }
 
+        /**
+         * implemented from View.onClickListener(), but actually does nothing.
+         *
+         * @param view the player textview clicked on by a user
+         * @author Littlesnowman88
+         */
         @Override
         public void onClick(View view) {
             //don't do anything on a click.
@@ -54,10 +79,13 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayersA
     }
 
 
-    /** called when each ViewHOlder in the RecycleView is created.
-     * @param parent: the single view group that contains all the players
+    /**
+     * called when each ViewHolder in the RecycleView is created.
+     *
+     * @param parent:   the single view group that contains all the players
      * @param viewType: an integer indicating different types of items
-     * @return: a PlayersAdapterViewHolder that contains the Views for each player.
+     * @return a PlayersAdapterViewHolder that contains the Views for each player.
+     * @author Littlesnomwan88
      */
     @NonNull
     @Override
@@ -71,10 +99,15 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayersA
         return new PlayersAdapterViewHolder(view);
     }
 
-    /**onBindViewHolder takes data from players and places the data onto the player_UI.
-     * @param player_holder the viewholder defined in this adapter class
-     * @param position the player info at which the adapter is currently looking
+    /**
+     * onBindViewHolder takes data from players and places the data onto the player_UI.
+     * onBindViewHolder also sets viewHolder darkmode
      * Postcondition: the player's UI textview is set with its information.
+     *
+     * @param player_holder the viewholder defined in this adapter class
+     * @param position      the player info at which the adapter is currently looking
+     *
+     * @author Littlesnowman88
      */
     @Override
     public void onBindViewHolder(@NonNull PlayersAdapterViewHolder player_holder, int position) {
@@ -89,14 +122,22 @@ public class PlayersAdapter extends RecyclerView.Adapter<PlayersAdapter.PlayersA
         }
     }
 
-    /** get the number of cards in the adapter's data structure **/
+    /**
+     * get the number of cards in the adapter's data structure
+     *
+     * @author littlesnowman88
+     */
     @Override
     public int getItemCount() {
         if (null == players) return 0;
         return players.size();
     }
 
-    /** set the player info in the adapter's data structure **/
+    /**
+     * set the player info in the adapter's data structure
+     *
+     * @author Littlesnowman88
+     */
     public void setPlayers(ArrayList<String> new_players) {
         players = new_players;
         notifyDataSetChanged(); //a method inside of Recycler View.

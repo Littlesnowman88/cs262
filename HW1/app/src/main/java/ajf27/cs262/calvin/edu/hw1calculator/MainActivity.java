@@ -16,16 +16,27 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    /**
+     * Main Activity displays a user interface for a simple calculator and provides basic calculator functionality
+     *
+     * @author Littlesnowman88
+     */
 
-    private Double val1, val2;
-    private String selected_operator;
-    private String[] operators;
-    private EditText input_box_1, input_box_2;
-    private ArrayAdapter<CharSequence> operator_adapter;
-    private TextView results_view;
-    private Context context;
+    private Double val1, val2; //user-input values
+    private String selected_operator; //for the calculation
+    private String[] operators; //array of possible operations
+    private EditText input_box_1, input_box_2; //UI
+    private ArrayAdapter<CharSequence> operator_adapter; //gives the spinner clickable items
+    private TextView results_view; //answer tet box
+    private Context context; //useful for accessing strings and string arrays
 
 
+    /**
+     * onCreate is responsible for loading the UI and preparing the UI's functionality
+     *
+     * @param savedInstanceState the activity's last known state, if not destroyed iin the background
+     * @author Littlesnomwan88
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //load appropriate starting values for val1 and val2
         val1 = null;
         val2 = null;
+        //load an appropriate default starting value for the operator
         try {
             selected_operator = operators[0];
         } catch (Exception e) {
@@ -65,15 +77,37 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     /* I am doing this in place of onPause, because the Android documentation warns against saving data during onPause() */
+
+    /**
+     * Saving the current UI state so the user can resume instead of starting the activity over
+     * I am doing this in place of onPause, because the Android documentation warns against saving data during onPause()
+     *
+     * @param outState
+     * @author Littlesnwoman88
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        if (val1 != null) {outState.putDouble("VALUE1", val1);}
-        if (val2 != null) {outState.putDouble("VALUE2", val2);}
+        //save non-null value 1
+        if (val1 != null) {
+            outState.putDouble("VALUE1", val1);
+        }
+        //save non-null value 2
+        if (val2 != null) {
+            outState.putDouble("VALUE2", val2);
+        }
+        //save the currently selected operator
         outState.putString("OPERATOR", selected_operator);
     }
 
-    /* called after onStart() */
+    /**
+     * Restores the UI to its last known state.
+     * Specifically, restores the two user values and the last-selected operator
+     * Called after onStart()
+     *
+     * @param savedInstanceState
+     * @author Littlesnowman88
+     */
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -83,7 +117,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    /* onResume, set the textbox listeners */
+    /**
+     * Called after onRestoreInstanceState, onResume sets listeners to the UI elements
+     *
+     * @author Littlesnowman88
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -117,26 +155,49 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
     }
 
-    /* implementing AdapterView.onItemSelectedListener */
+    /**
+     * onItemSelected implements AdapterView.onItemSelectedListener
+     * here, the function saves the user's selected operator into an instance variable
+     *
+     * @param parent   the root view that holds this adapter
+     * @param view     the view (operator) clicked on by the adapter
+     * @param position the indexed of the view clicked on by the adapter
+     * @param id       the integer id of the view clicked on by the adapter
+     * @author: Littlesnowman88
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         selected_operator = parent.getItemAtPosition(position).toString();
     }
 
-    /* implementing AdapterView.onItemSelectedListener */
+    /**
+     * onNothingSelected implements AdapterView.onItemSelectedListener
+     * here, if nothing is selected, the operator is restored to its default state
+     *
+     * @param parent the root view that holds this adapter
+     * @author Littlesnowman88
+     */
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        //if nothing is selected:
         if (selected_operator.equals("")) {
+            //set the adapter to either the first listed operator, or else an empty string if no operators exist
             if (operators.length != 0) {
                 selected_operator = getResources().getStringArray(R.array.operator_array)[0];
             } else {
-                selected_operator = operators[0];
+                selected_operator = "";
             }
         }
     }
 
-    /* the real work of the calculator */
+    /**
+     * called by the calculate button, this calculates the user's values and sets the result text
+     *
+     * @param view the calculate button
+     * @author Littlesnowman88
+     */
     public void calculateButtonPressed(View view) {
+        //private helper function to get the input values
         retrieveInputVals();
 
         if ((val1 != null) && (val2 != null)) {
@@ -182,9 +243,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    /* getting the numeric values from the user's two number input boxes
-    *  If the input can't be turned into a number, the val is set to null
-    */
+    /**
+     * retrieveInputVals gets the numeric values from the user's two number input boxes
+     * If the input can't be turned into a number, the val is set to null
+     *
+     * @author Littlesnowman88
+     */
     private void retrieveInputVals() {
         try {
             val1 = Double.parseDouble(input_box_1.getText().toString());
@@ -202,7 +266,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    /* helper function to help with code readability */
+    /**
+     * Sets the result text box with the calculation result, passed in as a parameter
+     * This function serves as a helper function to help with code readability
+     *
+     * @param result_text, a string form of the result
+     * @author Littlesnowman88
+     */
     private void setResultText(String result_text) {
         results_view.setText(result_text);
     }

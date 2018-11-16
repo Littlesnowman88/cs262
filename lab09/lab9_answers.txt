@@ -1,0 +1,49 @@
+Andrew Fulling - Lab 9 Exercise 9.1
+Dr. VanderLinden
+CS 262 - A
+11/02/2018
+
+Exercise 9.1 Answers
+A: How many API endpoints does this application support and where are they implemented?
+	There are three endpoints: players, player/{id}, and player (for POST).
+	All three endpoints are implemented in PlayerResource.java.
+	GET accesses players and player/{id}.
+	POST accesses only player.
+	player/{id} is accessed by GET, PUT, DELETE.
+B. PlayerResource.java:
+	i. What is the Java-based technology used to access data from a database?
+	Answer: JDBC (Java Database Connectivity is the programming interface that Java uses.
+	ii. Compare and contrast:
+		SQL query statements vs JDBC statement objects
+			Comparison: both SQL queries and JDBC statement objects access (get) data from the db.
+			Contrast: an SQL statement is something that merely runs, whereas a JDBC statement is an object
+				with methods and properties.
+			Contrast: JDBC executes a static sql statement and returns the results; therefore,
+				JDBC needs an SQL statement, whereas an SQL statement doesn't need anything to run.
+			Contrast: JDBC generate ResultSet objects--these are tables only (as opposed to raw column values,
+				which SQL can provide).
+		SQL relations vs JDBC result sets vs List<Player>
+			An SQL relation is a table of tuples (rows).
+			A JDBC result set is also a table--but as an object.
+			A List<Player> is a list containing Player objects with their own data.
+				(thanks Kelsey Norman for mentioning Encapsulation here!)
+
+			An SQL relation is accessed directly through SQL queries, and columns
+				can be directly accessed.
+			A JDBC result set requires a cursor to navigate the data.
+			Result set cursors point to rows of data--not individual columns.
+			List<Player> elements are responsible for their own data.
+	iii. Under what circumstances would the function getValueStringOrNull() be used?
+		GetValueStringOrNull allows the JDBC to interact with SQL INSERT/UPDATE commands
+			by returning literal String values that SQL needs. It also returns an unquoted
+			NULL so that INSERT/UPDATE commands are not messed up by quotes.
+C. Player.java:
+	i. What purpose does this Player DAO serve?
+		Definition: DAO: Data-Access Object.
+		According to Dr. Vander Linden's documentation, the Player DAO provides
+			an object-oriented way to represent and manipulate player objects.
+			In other words, Encapsulation!
+	ii. How does it compare with the Player table?
+		The player table has tuples (data) but can't derive data from its own contents like
+		a Player DAO can (thank you, class methods!). Both can directly modify raw data, though.
+		
